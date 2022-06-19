@@ -200,7 +200,8 @@ function stab() {
 
   
 
-var s = sessionStorage.getItem('score');
+var s = sessionStorage.getItem('score'),
+    getcc=true;
   
   
   
@@ -226,11 +227,12 @@ if (a[4]!==undefined){td[8].innerHTML = a[4];td[9].innerHTML = c[4]}
 if (a[5]!==undefined){td[10].innerHTML = a[5];td[11].innerHTML = c[5]}    
      stab();
      $('.mytab').fadeIn('fast');
+     getcc=false;
 }
   function make() { hidepage(); setInterval(function(){ if ($('.btn-secondary').is(':visible')) { location.reload();  }}, 1000); }
 
 
-  setInterval(function(){getc();  }, 1000);
+  setInterval(function(){ if(getcc===true){    getc(); } }, 1000);
 
   window.onload = function() { }
 
