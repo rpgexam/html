@@ -1,131 +1,91 @@
 
 
 <style>
-  .mytab{display:none}
-  
- .mytab table { font-family:quicksand;
-    border-collapse:collapse;
-    color:#165f75;
-    width:calc(100% - 14px);
-  margin-left:7px; 
-background-color:white;
-}
 
-.mytab td, .mytab th {
-    border-left:solid #EDEDED 1px;
-    border-top:solid #EDEDED 1px;
-}
+#mytab {display:none;}
+.mytab table { font-family:quicksand;border-collapse:collapse;color:#165f75;width:calc(100% - 14px);margin-left:7px; background-color:white;}
 
-.mytab th {
-    height:50px; margin-top:7px;
-    border-top: solid #EDEDED 1px;
-}
+.mytab td, .mytab th {border-left:solid #EDEDED 1px;border-top:solid #EDEDED 1px;}
 
-.mytab td:first-child, .mytab th:first-child {
-     border-left: none;
-}
+.mytab th {height:50px; margin-top:7px;border-top: solid #EDEDED 1px;}
+
+.mytab td:first-child, .mytab th:first-child {border-left: none;}
 
 .mytab tr:nth-child(even) {background-color: #F6F6F6;}
   
-  
-  
-  #mytab {
-  counter-reset: serial-number;  /* Set the serial number counter to 0 */
-}
-  #mytab td { padding-left:4px;}
+#mytab {counter-reset: serial-number;  /* counter to 0 */}
+#mytab td { padding-left:4px;}
 
-#mytab td:first-child:before {
- 
-  counter-increment: serial-number;  /* Increment the serial number counter */
-  content: counter(serial-number)". "; 
-  
-}
-  
+#mytab td:first-child:before {counter-increment: serial-number;  /* Increment */content: counter(serial-number)". "; }
 
-tdate {font-size:12px; background-color:#DCAF85; color:white; padding:2px; border-radius:2px; margin-top:-0px;float:left;}
-date {font-size:12px; background-color:#A1A4E1; color:white; padding:2px; border-radius:2px; margin:1px 0px 1px 0px;float:left;}
+tdate {font-size:12px; background-color:#DCAF85; color:white; padding:2px; border-radius:2px; margin-top:-0px;float:left;clear:both}
+date {font-size:12px; background-color:#A1A4E1; color:white; padding:2px; border-radius:2px; margin:1px 0px 1px 0px;float:left;clear:both}
   
 .content-inner {background-color:#DCDCDC}
-  .tabhead {width:calc(100% - 14px); border:none;margin-left:7px; background-color:white;height:40px; border-top-right-radius:10px;border-top-left-radius:10px; color:black}
+.tabhead {width:calc(100% - 14px); border:none;margin-left:7px; background-color:white;height:40px; border-top-right-radius:10px;border-top-left-radius:10px; color:black}
+
+tsc {display:block; width:100%; clear:both}
 </style>
 
-</div>NAME:<br/>
+
+
+  
+NAME:<br/>
 <input class="page-number-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
-<br/>
-  SCORE:<br/>
-  <input class="page-number-input" id="scr" oninput="validity.valid||(value='');manage2(this);" type="text" />
+
 <button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL</button>
 
 <button class="gotopage" disabled="" hidden="" id="gobutton" onclick="submit();">SAVE</button>
-<brtag>
-  <brtag>
-    <brtag>
+
 
 <script>
 sessionStorage.setItem('score', '100');
-var hidebutton = document.getElementById('hidebutton');
-var gobutton = document.getElementById('gobutton');
+var getcc=true,
+hbtn = document.getElementById('hidebutton'),
+gbtn = document.getElementById('gobutton');
   
   
-function manage1(p) {
-if (p.value != '') 
-{gobutton.hidden = false; gobutton.disabled = false; hidebutton.hidden = true;}
+function manage1(p) {if (p.value != '') 
+{gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}
  else 
-{gobutton.hidden = true; gobutton.disabled = true; hidebutton.hidden = false;}
+{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
 var name = document.getElementById("name").value;
+var scr = document.querySelector('time').value;
 document.getElementById("hcb_form_name").value = name;
-manage();
-}
-  
-  function manage2(p) {
-if (p.value != '') 
-{gobutton.hidden = false; gobutton.disabled = false; hidebutton.hidden = true;}
+document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sDT+"</tdate><date>"+sDT+"</date>";                  
+manage();}
+
+function manage2(p) {if (p.value != '') 
+{gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}
  else 
-{gobutton.hidden = true; gobutton.disabled = true; hidebutton.hidden = false;}
-    
-    
-    var nd = new Date();
-var date = nd.getDate()+'-'+(nd.getMonth()+1)+'-'+nd.getFullYear()
-var time = nd.getHours() + ":" + nd.getMinutes();
-var DT = date+' '+time;
-    
-    
+{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
+var snd = new Date();
+var sdate = snd.getDate()+'-'+(snd.getMonth()+1)+'-'+snd.getFullYear()
+var stime = snd.getHours() + ":" + snd.getMinutes();
+var sDT = sdate+' '+stime;
 var scr = document.getElementById("scr").value;
-  document.getElementById("hcb_form_content").value = scr+'<br/><date>'+DT+'</date>';
-    
+document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sDT+"</tdate><date>"+sDT+"</date>";
+manage();}
+
   
-    
-manage();
-}
-  
-  
- function manage(){var scr = document.getElementById("scr").value,name = document.getElementById("name").value;
-                   if (scr != '' && name != '') {gobutton.hidden = false; gobutton.disabled = false; hidebutton.hidden = true;}
- else 
-{gobutton.hidden = true; gobutton.disabled = true; hidebutton.hidden = false;} }
+function manage(){var name = document.getElementById("name").value;
+if (name != '') {gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}else 
+{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;} }
   
   
   
 function showkeyboard(){
-  var scr = document.getElementById("scr").value,name = document.getElementById("name").value;
-  if (name!=''){document.getElementById("scr").focus()} else { document.getElementById("name").focus()}  }
+var name = document.getElementById("name").value;
+  document.getElementById("name").focus()}
 function submit(){make(); document.getElementById("hcb_submit").click();  }
 
 var input = document.getElementById("name");
-input.addEventListener("keypress", function(e) {
-  if (e.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("gobutton").click(); 
-  }
-});
   
-  var input2 = document.getElementById("scr");
-  input2.addEventListener("keypress", function(e) {
-  if (e.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("gobutton").click(); 
-  }
-});
+  
+input.addEventListener("keypress", function(e) {
+if (e.keyCode === 13) {event.preventDefault();
+document.getElementById("gobutton").click(); }});
+  
   
 </script>
 <!-- begin wwww.htmlcommentbox.com -->
@@ -145,79 +105,54 @@ input.addEventListener("keypress", function(e) {
 
 <style>
  
-   #HCB_comment_box {position:fixed;top:0;left:0;height:100%;overflow-y:scroll;overflow-x: hidden; width:0px;height:0px;}
+  #HCB_comment_box {position:fixed;top:0;left:0;height:100%;overflow-y:scroll;overflow-x: hidden; width:0px;height:0px;}
  #HCB_comment_box a.hcb-like,#HCB_comment_box a.hcb-flag,#HCB_comment_box a.hcb-reply,#HCB_comment_box #hcb_form .home-desc,#HCB_comment_box #hcb_form .hcb-door-in ,#HCB_comment_box .likes{opacity:0;pointer-events:none;position:absolute;}
 </style>
-      <div class='mytab'>
-  <button class='tabhead'>SCORE OF LAST 50 USERS</button>
-      <table id="mytab">
-  <tr><th>Name</th><th>Score</th></tr>
-  <tr><td>RAJENDRA PRASAD GHOSAL</td><td style='min-width:105px'>888<br/><tdate>02 Min. 30 Sec.</tdate><br/><date>17-06-2022 12:23</date></td></tr>
-  <tr><td>RAJENDRA PRASAD GHOSAL</td><td>888<br/><tdate>05 Min. 41 Sec.</tdate><br/><date>17-06-2022 02:23</date></td></tr>
-  <tr><td>RAJENDRA PRASAD GHOSAL</td><td>257<br/><tdate>10 Min. 32 Sec.</tdate><br/><date>17-06-2022 12:15</date></td></tr>
-  <tr><td>RAJENDRA PRASAD GHOSAL</td><td>754<br/><tdate>14 Min. 52 Sec.</tdate><br/><date>17-06-2022 10:23</date></td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
-  <tr><td>-</td><td>-</td></tr>
+<div class='mytab'>
+<button class='tabhead'>SCORE OF LAST 5 USERS</button>
   
   
-  
+<table id="mytab">
+<tr><th>Name</th><th>Score</th></tr>
+
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+
 </table>
-      </div>
-     
+</div>
       
       
 <script>
     
 function stab() {
-  var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("mytab");
-  switching = true;
-  while (switching) {
-    switching = false;
-    rows = table.rows;
-    for (i = 1; i < (rows.length - 1); i++) {
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("td")[1];
-      y = rows[i + 1].getElementsByTagName("td")[1];
-      if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
-        shouldSwitch = true;
-        break;}}
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+var table, rows, switching, i, x, y, shouldSwitch;
+table = document.getElementById("mytab");switching = true;
+while (switching) {switching = false;rows = table.rows;
+for (i = 1; i < (rows.length - 1); i++) {shouldSwitch = false;
+x = rows[i].getElementsByTagName("td")[1];
+y = rows[i + 1].getElementsByTagName("td")[1];
+if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {shouldSwitch = true;break;}}
+if (shouldSwitch) {rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;}}}
 
   
-
-var s = sessionStorage.getItem('score'),
-    getcc=true;
-  
-  
-  
-   function getc(){
+function getc(){
 
      
 var clist = document.querySelectorAll(".hcb-comment-body"),
-c =[];for (var i = 0; i < clist.length; i++) {const cd = clist[i].innerHTML;
+c =[];for (var i = 0; i < clist.length; i++) {const cd = clist[i].innerText;
 c.push(cd);c.join(", ");} 
      
 var alist = document.querySelectorAll(".author-name"),
-a =[];for (var i = 0; i < alist.length; i++) {const cd = alist[i].innerHTML;
+a =[];for (var i = 0; i < alist.length; i++) {const cd = alist[i].innerText;
 a.push(cd);a.join(", ");} 
 
-     var tab = document.getElementById("mytab");
-     var td = tab.getElementsByTagName('td');
+var tab = document.getElementById("mytab");
+var td = tab.getElementsByTagName('td');
      
 if (a[0]!==undefined){td[0].innerHTML = a[0];td[1].innerHTML = c[0]}
 if (a[1]!==undefined){td[2].innerHTML = a[1];td[3].innerHTML = c[1]}
@@ -225,29 +160,11 @@ if (a[2]!==undefined){td[4].innerHTML = a[2];td[5].innerHTML = c[2]}
 if (a[3]!==undefined){td[6].innerHTML = a[3];td[7].innerHTML = c[3]}
 if (a[4]!==undefined){td[8].innerHTML = a[4];td[9].innerHTML = c[4]}    
 if (a[5]!==undefined){td[10].innerHTML = a[5];td[11].innerHTML = c[5]}    
-     stab();
-     $('.mytab').fadeIn('fast');
-     getcc=false;
-}
-  function make() { hidepage(); setInterval(function(){ if ($('.btn-secondary').is(':visible')) { location.reload();  }}, 1000); }
-
-
-  setInterval(function(){ if(getcc===true){    getc(); } }, 1000);
-
-  window.onload = function() { }
-
-
   
+ stab();showpage();getcc=false;   }
   
-var a1 = 97,
+function make() { hidepage(); setInterval(function(){ if ($('.btn-secondary').is(':visible')) { location.reload();  }}, 1000); }
 
-numArray = [140000, 104, 99, 23, 76, 98, 04];
-numArray.sort(function(a, b) {
-  return b - a;
-});
+setInterval(function(){ if(getcc===true){getc(); } }, 1000);
 
-
-
-
-      </script>
-
+ </script>
