@@ -39,7 +39,6 @@ NAME:<br/>
 
 
 <script>
-sessionStorage.setItem('score', '100');
 var getcc=true,
 hbtn = document.getElementById('hidebutton'),
 gbtn = document.getElementById('gobutton');
@@ -50,9 +49,16 @@ function manage1(p) {if (p.value != '')
  else 
 {gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
 var name = document.getElementById("name").value;
-var scr = document.querySelector('time').innerHTML;
+                     
+var snd = new Date();
+var sdate = snd.getDate()+'-'+(snd.getMonth()+1)+'-'+snd.getFullYear()
+var stime = snd.getHours() + ":" + snd.getMinutes();
+var sDT = sdate+' '+stime;
+                     
+var scr = document.querySelector('ys').innerHTML,
+    sTT = document.querySelector('time').innerHTML;
 document.getElementById("hcb_form_name").value = name;
-document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sDT+"</tdate><date>"+sDT+"</date>";                  
+document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sTT+"</tdate><date>"+sDT+"</date>";                  
 manage();}
 
   
