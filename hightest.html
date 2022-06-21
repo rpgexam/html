@@ -50,21 +50,9 @@ function manage1(p) {if (p.value != '')
  else 
 {gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
 var name = document.getElementById("name").value;
-var scr = document.querySelector('time').value;
+var scr = document.querySelector('time').innerHTML;
 document.getElementById("hcb_form_name").value = name;
 document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sDT+"</tdate><date>"+sDT+"</date>";                  
-manage();}
-
-function manage2(p) {if (p.value != '') 
-{gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}
- else 
-{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
-var snd = new Date();
-var sdate = snd.getDate()+'-'+(snd.getMonth()+1)+'-'+snd.getFullYear()
-var stime = snd.getHours() + ":" + snd.getMinutes();
-var sDT = sdate+' '+stime;
-var scr = document.getElementById("scr").value;
-document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sDT+"</tdate><date>"+sDT+"</date>";
 manage();}
 
   
