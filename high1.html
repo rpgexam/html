@@ -71,14 +71,7 @@ date {font-size:12px; background-color:#A1A4E1; color:white; padding:2px; border
 </style>
 
 
-<div id="popup2" class="popup2">
-<div class="loadshadow">
-<div class="loader">
-</div>
-<br/>
-<loading>LOADING</loading>
-</div>
-</div>
+
 <p class='pp'>CHECK</p>
 NAME:<br/>
 <input class="page-number-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
@@ -182,11 +175,11 @@ document.getElementById("gobutton").click(); }});
 <table id="mytab">
 <tr><th>Name</th><th>Score</th></tr>
 
-<tr><td>-</td><td>-</td></tr>
-<tr><td>-</td><td>-</td></tr>
-<tr><td>-</td><td>-</td></tr>
-<tr><td>-</td><td>-</td></tr>
-<tr><td>-</td><td>-</td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
+<tr><td></td><td></td></tr>
 
 </table>
 </div>
@@ -241,7 +234,7 @@ if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
   
     
     if(getdd===false){ ldh();}
-  if(getcc===true && getdd===true){ stab(); showpage();}
+  if(getcc===true && getdd===true){ stab(); }
      getcc=false;
     
     
@@ -252,7 +245,7 @@ if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
   function make() { 
    getcc=true;
    getdd=false;
-    hidepage();
+    
     }
 
 
