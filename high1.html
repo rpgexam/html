@@ -246,22 +246,23 @@ td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;
 td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;
 
   
-     if(getcc===true){ stab(); ldh();}
+     if(getcc===true){ stab(); $('#wl').fadeIn();}
      showpage(); 
   getcc=false;}  
 }
   
   function make() { 
+   
     $('.pp').html('CCC');
     $('#wl').hide();
-    getcc=true; }
+    }
 
 
   function geti(){
 setInterval(function(){ if(getcc===true){getc(); } }, 1000);}
 geti();
 window.onload = function() { }
-setInterval(function(){ if ($('.btn-secondary').is(':visible')) { $('.btn-secondary').click();} }, 1000);
+setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();} }, 1000);
 
   
 </script>
