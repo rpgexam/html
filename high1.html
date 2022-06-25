@@ -1,0 +1,267 @@
+
+
+
+
+<script src='https://cdn.jsdelivr.net/gh/gkcube/js@1/jquery.min.js'></script>
+
+<script>
+function delayloading() {
+var ld = document.getElementsByTagName("loading");
+setTimeout(function() {ld[0].innerHTML = "NETWORK SLOW";}, 7000);
+setTimeout(function() {ld[0].innerHTML = "RETRYING";}, 8000);
+setTimeout(function() {ld[0].innerHTML = "LOADING";if($('#popup2').is(':visible')){location.reload();}}, 10000); }
+delayloading(); 
+
+function showpage() {$("#popup2").fadeOut();}
+function hidepage() {delayloading(); $('#popup2').show();}
+</script>
+
+
+<style>
+  .popup2 {
+background-color: #ffffff;
+width:100%;height:100vh;top:0;left:0;position:fixed; z-index:5;text-align:center;color:black;font-family:Quicksand; }
+
+.loadshadow {box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.50);padding-top:25px;width:120px;height:95px;margin: 0px auto 0px auto;border-radius:10px;margin-top:40vh;}
+
+.loader {margin-left:auto;margin-right:auto; border: 2px solid transparent;border-radius: 100%;border-left: 2px solid #3498db;border-right: 2px solid #a8044b;width: 30px;height: 30px; animation: spin 0.8s linear infinite;z-index:4;}
+  @keyframes spin {0% { transform: rotate(0deg); }100% { transform: rotate(360deg); }}
+  
+ .mytab table { font-family:quicksand;
+    border-collapse:collapse;
+    color:#165f75;
+    width:calc(100% - 14px);
+  margin-left:7px; 
+background-color:white;
+}
+
+.mytab td, .mytab th {
+    border-left:solid #EDEDED 1px;
+    border-top:solid #EDEDED 1px;
+}
+
+.mytab th {
+    height:50px; margin-top:7px;
+    border-top: solid #EDEDED 1px;
+}
+
+.mytab td:first-child, .mytab th:first-child {
+     border-left: none;
+}
+
+.mytab tr:nth-child(even) {background-color: #F6F6F6;}
+  
+  
+  
+  #mytab {
+  counter-reset: serial-number;  /* Set the serial number counter to 0 */
+}
+  #mytab td { padding-left:4px;}
+
+#mytab td:first-child:before {
+ 
+  counter-increment: serial-number;  /* Increment the serial number counter */
+  content: counter(serial-number)". "; 
+  
+}
+  
+
+tdate {font-size:12px; background-color:#DCAF85; color:white; padding:2px; border-radius:2px; margin-top:-0px;float:left;clear:both}
+date {font-size:12px; background-color:#A1A4E1; color:white; padding:2px; border-radius:2px; margin:1px 0px 1px 0px;float:left;clear:both}
+  
+.content-inner {background-color:#DCDCDC}
+  .tabhead {width:calc(100% - 14px); border:none;margin-left:7px; background-color:white;height:40px; border-top-right-radius:10px;border-top-left-radius:10px; color:black}
+
+  sblock {display:block; width:100%; clear:both}
+</style>
+
+
+  
+  
+<p class='pp'>CHECK</p>
+NAME:<br/>
+<input class="page-number-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
+<br/>
+SCORE:
+<br/>
+<input class="page-number-input" id="scr" oninput="validity.valid||(value='');manage2(this);" type="text" />
+<button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL</button>
+
+<button class="gotopage" disabled="" hidden="" id="gobutton" onclick="submit();">SAVE</button>
+
+
+<script>
+sessionStorage.setItem('score', '100');
+var hbtn = document.getElementById('hidebutton');
+var gbtn = document.getElementById('gobutton');
+  
+  
+function manage1(p) {if (p.value != '') 
+{gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}
+ else 
+{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
+var name = document.getElementById("name").value;
+document.getElementById("hcb_form_name").value = name;
+manage();}
+
+function manage2(p) {if (p.value != '') 
+{gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}
+ else 
+{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
+    
+
+var snd = new Date();
+var sdate = snd.getDate()+'-'+(snd.getMonth()+1)+'-'+snd.getFullYear()
+var stime = snd.getHours() + ":" + snd.getMinutes();
+var sDT = sdate+' '+stime;
+
+
+var scr = document.getElementById("scr").value;
+document.getElementById("hcb_form_content").value = scr+"<tdate>12:22</tdate><date>"+sDT+"</date>";
+manage();}
+
+  
+function manage(){var scr = document.getElementById("scr").value,name = document.getElementById("name").value;
+if (scr != '' && name != '') {gobutton.hidden = false; gobutton.disabled = false; hidebutton.hidden = true;}else 
+{gobutton.hidden = true; gobutton.disabled = true; hidebutton.hidden = false;} }
+  
+  
+  
+function showkeyboard(){
+var scr = document.getElementById("scr").value,name = document.getElementById("name").value;
+if (name!=''){document.getElementById("scr").focus()} else { document.getElementById("name").focus()}  }
+function submit(){make(); document.getElementById("hcb_submit").click();  }
+
+var input = document.getElementById("name");
+input.addEventListener("keypress", function(e) {
+if (e.keyCode === 13) {event.preventDefault();
+document.getElementById("gobutton").click(); }});
+var input2 = document.getElementById("scr");
+input2.addEventListener("keypress", function(e) {
+if (e.keyCode === 13) {event.preventDefault();
+document.getElementById("gobutton").click(); }});
+  
+</script>
+<!-- begin wwww.htmlcommentbox.com -->
+
+ <div id="HCB_comment_box">
+
+
+
+</div>
+ <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> 
+
+
+   
+   
+   function htmlbox() {
+     
+     if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24OffYAhfqppTsjVf1ckI8M%2F"+"&opts=16862&num=10&ts=1616389315944");
+                                                    if (typeof s!="undefined") document.getElementById("HCB_comment_box").appendChild(s);
+                                                   
+                                                   })();
+     
+     $('.pp').html('HTML');
+     
+   }
+   
+   htmlbox();
+
+</script>
+<!-- end www.htmlcommentbox.com -->
+
+<style>
+ 
+  #HCB_comment_box {position:fixed;top:0;left:0;height:100%;overflow-y:scroll;overflow-x: hidden; width:0px;height:0px;}
+ #HCB_comment_box a.hcb-like,#HCB_comment_box a.hcb-flag,#HCB_comment_box a.hcb-reply,#HCB_comment_box #hcb_form .home-desc,#HCB_comment_box #hcb_form .hcb-door-in ,#HCB_comment_box .likes{opacity:0;pointer-events:none;position:absolute;}
+</style>
+<div class='mytab'>
+<button class='tabhead'>SCORE OF LAST 5 USERS</button>
+<table id="mytab">
+<tr><th>Name</th><th>Score</th></tr>
+
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+<tr><td>-</td><td>-</td></tr>
+
+</table>
+</div>
+      
+      
+<script>
+    
+function stab() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("mytab");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[1];
+      y = rows[i + 1].getElementsByTagName("td")[1];
+      if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+        shouldSwitch = true;
+        break;}}
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;}}}
+
+  
+
+var s = sessionStorage.getItem('score'), getcc=true;
+  
+  
+  
+function getc(){
+
+     
+var cb = document.querySelectorAll(".hcb-comment-body"),c =[];
+  
+  for (var i = 0; i < cb.length; i++) {const cd = cb[i].innerText;
+c.push(cd);c.join(", ");}
+     
+var an = document.querySelectorAll(".author-name"),a =[];
+  
+  for (var i = 0; i < an.length; i++) {const cd = an[i].innerText;
+a.push(cd);a.join(", ");}
+
+var tab = document.getElementById("mytab");
+var td = tab.getElementsByTagName('td');
+     
+  if (cb.length != 0){
+  
+td[0].innerHTML = an[0].innerText;td[1].innerHTML = cb[0].innerText;
+    
+td[2].innerHTML = an[1].innerText;td[3].innerHTML = cb[1].innerText;
+    
+td[4].innerHTML = an[2].innerText;td[5].innerHTML = cb[2].innerText;
+    
+td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;
+    
+td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;
+
+  
+     if(getcc===true){ stab();}
+     showpage(); 
+  getcc=false;}  
+}
+  
+  function make() { 
+    $('.pp').html('CCC');
+    getcc=true; }
+
+
+  function geti(){
+setInterval(function(){ if(getcc===true){getc(); } }, 1000);}
+geti();
+window.onload = function() { }
+setInterval(function(){ if ($('.btn-secondary').is(':visible')) { $('.btn-secondary').click();} }, 1000);
+
+  
+</script>
+
