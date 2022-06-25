@@ -91,7 +91,7 @@ SCORE:
 
 
 <script>
-sessionStorage.setItem('score', '100');
+
 var hbtn = document.getElementById('hidebutton');
 var gbtn = document.getElementById('gobutton');
   
@@ -213,7 +213,7 @@ function stab() {
 
   
 
-var s = sessionStorage.getItem('score'), getcc=true;
+var getcc=true, getdd=true;
   
   
   
@@ -252,7 +252,7 @@ td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;
 }
   
   function make() { 
-   
+   getdd=false;
     $('.pp').html('CCC');
     $('#wl').hide();
     }
@@ -262,7 +262,7 @@ td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;
 setInterval(function(){ if(getcc===true){getc(); } }, 1000);}
 geti();
 window.onload = function() { }
-setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();} }, 1000);
+setInterval(function(){ if(getdd===false && getccc===false){ ldh();} }, 1000);
 
   
 </script>
