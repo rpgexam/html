@@ -234,25 +234,13 @@ if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
   
     
     if(getdd===false){ ldh();}
-  if(getcc===true && getdd===true){ stab(); }
-     getcc=false;
-    
-    
-  } 
+  if(getcc===true && getdd===true){ stab(); $('#mytab').fadeIn();}
+     getcc=false; } 
     
 }
   
-  function make() { 
-   getcc=true;
-   getdd=false;
-    
-    }
-
-
-setInterval(function(){ 
-if(getcc===true){getc();} 
-
-                      }, 1000);
+function make() { getcc=true;getdd=false;$('#mytab').hide();}
+setInterval(function(){ if(getcc===true){getc();} }, 1000);
 
   
 </script>
