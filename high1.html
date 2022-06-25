@@ -220,49 +220,38 @@ var getcc=true, getdd=true;
 function getc(){
 
      
-var cb = document.querySelectorAll(".hcb-comment-body"),c =[];
-  
-  for (var i = 0; i < cb.length; i++) {const cd = cb[i].innerText;
-c.push(cd);c.join(", ");}
+var cb = document.querySelectorAll(".hcb-comment-body"),c = cb.length;
      
-var an = document.querySelectorAll(".author-name"),a =[];
-  
-  for (var i = 0; i < an.length; i++) {const cd = an[i].innerText;
-a.push(cd);a.join(", ");}
-
+var an = document.querySelectorAll(".author-name"),a = an.length;
 var tab = document.getElementById("mytab");
 var td = tab.getElementsByTagName('td');
      
-  if (cb.length != 0){
-  
-td[0].innerHTML = an[0].innerText;td[1].innerHTML = cb[0].innerText;
+if (c>0){td[0].innerHTML = an[0].innerText;td[1].innerHTML = cb[0].innerText;}
     
-td[2].innerHTML = an[1].innerText;td[3].innerHTML = cb[1].innerText;
+if (c>1){td[2].innerHTML = an[1].innerText;td[3].innerHTML = cb[1].innerText;}
     
-td[4].innerHTML = an[2].innerText;td[5].innerHTML = cb[2].innerText;
+if (c>2){td[4].innerHTML = an[2].innerText;td[5].innerHTML = cb[2].innerText;}
     
-td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;
+if (c>3){td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;}
     
-td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;
+if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
+    
 
+if(getcc===true && getdd===true){ stab(); $('#wl').fadeIn();}
+     getcc=false;
   
-     if(getcc===true){ stab(); $('#wl').fadeIn();}
-     showpage(); 
-  getcc=false;}  
 }
   
   function make() { 
    getdd=false;
-    $('.pp').html('CCC');
     $('#wl').hide();
     }
 
 
-  function geti(){
-setInterval(function(){ if(getcc===true){getc(); } }, 1000);}
-geti();
-window.onload = function() { }
-setInterval(function(){ if(getdd===false && getcc===false){ ldh();} }, 1000);
+setInterval(function(){ 
+if(getcc===true){getc();} 
+if(getdd===false && getcc===false){ ldh();}
+                      }, 1000);
 
   
 </script>
