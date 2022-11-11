@@ -98,7 +98,7 @@ var stime = snd.getHours() + ":" + snd.getMinutes();
 var sDT = sdate+' '+stime;
 
 
-var scr = document.getElementById("ys").value,
+var scr = document.querySelector('ys').innerHTML,
 sTT = document.querySelector('time').innerHTML;
 document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sTT+"</tdate><date>"+sDT+"</date>";
 manage();}
