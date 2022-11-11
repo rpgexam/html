@@ -75,7 +75,7 @@ SCORE:
 <input class="page-number-input" id="scr" oninput="validity.valid||(value='');manage2(this);" type="text" />
 <button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL</button>
 
-<button class="gotopage" disabled="" hidden="" id="gobutton" onclick="submit();">SAVE</button>
+<button class="gotopage" disabled="" hidden="" id="gobutton" onclick="scoresubmit();">SAVE</button>
 
 
 <script>
@@ -115,7 +115,7 @@ if (name != '') {gobutton.hidden = false; gobutton.disabled = false; hidebutton.
 function showkeyboard(){
 var name = document.getElementById("name").value;
   document.getElementById("name").focus()}
-function submit(){make(); document.getElementById("hcb_submit").click();  }
+function scoresubmit(){make(); document.getElementById("hcb_submit").click();  }
 
 var input = document.getElementById("name");
   
