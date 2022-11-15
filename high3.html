@@ -219,14 +219,19 @@ if (c>3){td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;}
 if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
    
    
- setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();  }}, 1000);
+
   if(getcc===true && getdd===true){ stab(); $('.wll').hide(); $('#mytab').fadeIn();}
-     getcc=false; } 
+     getcc=false; } else {$('.wll').hide(); $('#mytab').fadeIn();}
     
 }
   
-function make() { getcc=true;getdd=false;$('#mytab').hide();$('.wll').show();}
-setInterval(function(){ if(getcc===true){getc();} }, 1000);
+function make() { getcc=true;getdd=false;$('#mytab').hide();$('.wll').show();
+                 setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();  }}, 1000);
+                }
+setInterval(function(){ if(getcc===true){getc();}
+                      
+                      
+                      }, 1000);
  
  
  
