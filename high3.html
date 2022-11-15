@@ -1,11 +1,14 @@
 
 <script>
+ var scr1,scr2,scr3;
+ 
 function delayscore() {
 var scrld = document.getElementsByTagName("scrload");
-scrld[0].innerHTML = "SCORE LOADING";
-setTimeout(function() {scrld[0].innerHTML = "PLEASE WAIT";}, 7000);
-setTimeout(function() {scrld[0].innerHTML = "RETRYING";}, 8000);
-setTimeout(function() {scrld[0].innerHTML = "LOADING";if(getcc===true && getdd===true){ldh();}}, 10000); }
+scrld[0].innerHTML = "LOADING";
+clearTimeout(scr1);clearTimeout(scr2);clearTimeout(scr3);
+var scr1 = setTimeout(function() {scrld[0].innerHTML = "WAIT";}, 7000),
+scr2 = setTimeout(function() {scrld[0].innerHTML = "RETRYING";}, 8000),
+scr3 = setTimeout(function() {scrld[0].innerHTML = "LOADING";if(getcc===true && getdd===true){ldh();}}, 10000); }
 delayscore(); 
 
 </script>
