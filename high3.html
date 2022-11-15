@@ -219,18 +219,13 @@ if (c>3){td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;}
 if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
    
    
-  if(getdd===false){ ldh();}
-   
-   
+ if(getdd===false){ ldh();}
   if(getcc===true && getdd===true){ stab(); $('.wll').hide(); $('#mytab').fadeIn();}
-     getcc=false; 
-  
-  } 
+     getcc=false; } 
     
 }
- 
+  
 function make() { getcc=true;getdd=false;$('#mytab').hide();$('.wll').show();}
- 
 setInterval(function(){ if(getcc===true){getc();} }, 1000);
 
 
