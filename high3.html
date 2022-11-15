@@ -235,7 +235,9 @@ if (c>9){td[18].innerHTML = an[9].innerText;td[19].innerHTML = cb[9].innerText;}
      getcc=false; } 
  
  else { 
-   if(getcc===true && getdd===true){ $('.wll').hide(); $('#mytab').fadeIn();} }
+  
+  setTimeout(function(){if(getcc===true && getdd===true){$('.wll').hide(); $('#mytab').fadeIn();}   }, 1000);
+   }
     
 }
   
