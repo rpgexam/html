@@ -221,7 +221,10 @@ if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
    
 
   if(getcc===true && getdd===true){ stab(); $('.wll').hide(); $('#mytab').fadeIn();}
-     getcc=false; } else {$('.wll').hide(); $('#mytab').fadeIn();}
+     getcc=false; } 
+ 
+ else { 
+   setInterval(function() {if($('#hcb_form_name').is(':visible')){$('.wll').hide(); $('#mytab').fadeIn();} }, 1000); }
     
 }
   
@@ -236,9 +239,6 @@ setInterval(function(){ if(getcc===true){getc();}
  
  
  
- 
- 
-
 
 </script>
 
