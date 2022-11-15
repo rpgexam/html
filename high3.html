@@ -167,7 +167,6 @@ document.getElementById("gobutton").click(); }});
 <tr><td></td><td></td></tr>
 <tr><td></td><td></td></tr>
 <tr><td></td><td></td></tr>
- <tr><td></td><td></td></tr>
 
 </table>
 </div>
@@ -197,40 +196,43 @@ function stab() {
 
 var getcc=true, getdd=true;
   
- 
- 
- function getc(){
+  
+function getc(){
 
-     
-var clist = document.querySelectorAll(".hcb-comment-body"),
-c =[];for (var i = 0; i < clist.length; i++) {const cd = clist[i].innerText;
-c.push(cd);c.join(", ");} 
-     
-var alist = document.querySelectorAll(".author-name"),
-a =[];for (var i = 0; i < alist.length; i++) {const cd = alist[i].innerText;
-a.push(cd);a.join(", ");} 
 
+var cb = document.querySelectorAll(".hcb-comment-body"),c = cb.length;
+     
+var an = document.querySelectorAll(".author-name"),a = an.length;
 var tab = document.getElementById("mytab");
 var td = tab.getElementsByTagName('td');
      
-if (a[0]!==undefined){td[0].innerHTML = a[0];td[1].innerHTML = c[0]}
-if (a[1]!==undefined){td[2].innerHTML = a[1];td[3].innerHTML = c[1]}
-if (a[2]!==undefined){td[4].innerHTML = a[2];td[5].innerHTML = c[2]}
-if (a[3]!==undefined){td[6].innerHTML = a[3];td[7].innerHTML = c[3]}
-if (a[4]!==undefined){td[8].innerHTML = a[4];td[9].innerHTML = c[4]}    
-if (a[5]!==undefined){td[10].innerHTML = a[5];td[11].innerHTML = c[5]}    
+  if (c>0){
   
+td[0].innerHTML = an[0].innerText;td[1].innerHTML = cb[0].innerText;
+    
+if (c>1){td[2].innerHTML = an[1].innerText;td[3].innerHTML = cb[1].innerText;}
+    
+if (c>2){td[4].innerHTML = an[2].innerText;td[5].innerHTML = cb[2].innerText;}
+    
+if (c>3){td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;}
+    
+if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
+   
+   
+ setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();  }}, 1000);
   if(getcc===true && getdd===true){ stab(); $('.wll').hide(); $('#mytab').fadeIn();}
+     getcc=false; } 
+    
+}
   
- getcc=false;   }
-  
-function make() { getcc=true;getdd=false;
-                 
-                 $('#mytab').hide();$('.wll').show();
-                 
- setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();  }}, 1000); }
-
-setInterval(function(){ if(getcc===true){getc(); } }, 1000);
+function make() { getcc=true;getdd=false;$('#mytab').hide();$('.wll').show();}
+setInterval(function(){ if(getcc===true){getc();} }, 1000);
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 </script>
