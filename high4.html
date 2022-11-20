@@ -62,7 +62,7 @@ dte {font-size:12px;min-width:90px; background-color:#A1A4E1; color:white; paddi
  zr{display:none;}
   tbr {display:block; width:100%; clear:both}
  
- .mname {margin-top:100px;}
+ 
  .name-input {width:80%; height:40px;}
  .gotopage{width:80px;background-color:green;}
 </style>
@@ -127,7 +127,7 @@ dte {font-size:12px;min-width:90px; background-color:#A1A4E1; color:white; paddi
 
 <div class='myname' hidden>
 <div class="mname">
-  <ben><p style="width:80%;margin-bottom:20px;">শেষ দশ জনের লিস্টে আপনার স্কোর রাখতে চাইলে আপনার নাম লিখুন এবং সাবমিট করে দিন।<hr/></p></ben>
+  <ben><p style="background-color:green;color:white;padding:0 4px 0 4px;margin-bottom:100px;">শেষ দশ জনের লিস্টে আপনার স্কোর রাখতে চাইলে আপনার নাম লিখুন এবং সাবমিট করে দিন।<hr/></p></ben>
 <input class="name-input" id="name" oninput="validity.valid||(value='');manage1(this);" placeholder="আপনার নাম টাইপ করুন" autocomplete="off" type="text" />
 <br/>
   <button class="details confirm" style="width:80px" onclick="$('.myname').hide();$('.mytab,.hback,.hsub').fadeIn();"><i class="m-i">&#xe5c9</i><br/>CANCEL</button>
