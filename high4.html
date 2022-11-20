@@ -125,9 +125,9 @@ date {font-size:12px;min-width:90px; background-color:#A1A4E1; color:white; padd
 </div>
 
 <div class='myname' hidden>
-<div class='mname'>
+<div class="mname">
 শেষ দশ জনের লিস্টে আপনার স্কোর রাখতে চাইলে আপনার নাম লিখুন এবং সাবমিট করে দিন।<br/>
-<input class="name-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
+<input class="name-input" id="name" oninput="validity.valid||(value='');manage1(this);" autocomplete="off" type="text" />
 <br/>
 <button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL YOUR NAME</button>
 <button class="gotopage" disabled="" hidden="" id="gobutton" onclick="scoresubmit();">SUBMIT NOW</button>
