@@ -1,0 +1,260 @@
+
+<script>
+
+function delayscore() {
+var scrld = document.getElementsByTagName("scrload");
+scrld[0].innerHTML = "LOADING";
+setTimeout(function() {scrld[0].innerHTML = "WAIT";}, 5000);
+setTimeout(function() {scrld[0].innerHTML = "LOADING";}, 8000);}
+delayscore(); 
+
+</script>
+
+
+<style>
+ 
+
+  .mytab table { font-family:quicksand;
+    border-collapse:collapse;
+    color:#165f75;
+    width:calc(100% - 14px);
+  margin-left:7px; 
+background-color:white;
+}
+
+.mytab td, .mytab th {
+    border-left:solid #EDEDED 1px;
+    border-top:solid #EDEDED 1px;
+}
+
+.mytab th {
+    height:50px; margin-top:7px;
+    border-top: solid #EDEDED 1px;
+}
+
+.mytab td:first-child, .mytab th:first-child {
+     border-left: none;
+}
+
+.mytab tr:nth-child(even) {background-color: #F6F6F6;}
+  
+  
+  
+  #mytab {
+  counter-reset: serial-number;  /* Set the serial number counter to 0 */
+}
+  #mytab td { padding-left:4px;}
+
+#mytab td:first-child:before {
+ 
+  counter-increment: serial-number;  /* Increment the serial number counter */
+  content: counter(serial-number)". "; 
+  
+}
+  
+
+tdate {font-size:12px; background-color:#DCAF85; color:white; padding:2px; border-radius:2px; margin-top:-0px;float:left;clear:both}
+date {font-size:12px; background-color:#A1A4E1; color:white; padding:2px; border-radius:2px; margin:1px 0px 1px 0px;float:left;clear:both}
+  
+.content-inner {background-color:#DCDCDC}
+  .tabhead {width:calc(100% - 14px); border:none;margin-left:7px; background-color:white;height:40px; border-top-right-radius:10px;border-top-left-radius:10px; color:black}
+
+  tsc {display:block; width:100%; clear:both}
+</style>
+
+
+
+<p class='pp'>CHECK</p>
+NAME:<br/>
+<input class="page-number-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
+
+<button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL</button>
+
+<button class="gotopage" disabled="" hidden="" id="gobutton" onclick="scoresubmit();">SAVE</button>
+
+
+<script>
+
+var hbtn = document.getElementById('hidebutton');
+var gbtn = document.getElementById('gobutton');
+  
+  
+function manage1(p) {if (p.value != '') 
+{gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}
+ else 
+{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
+var name = document.getElementById("name").value;
+document.getElementById("hcb_form_name").value = name;
+
+
+    
+
+var snd = new Date();
+var sdate = snd.getDate()+'-'+(snd.getMonth()+1)+'-'+snd.getFullYear()
+var stime = snd.getHours() + ":" + snd.getMinutes();
+var sDT = sdate+' '+stime;
+
+
+var scr = '100',
+sTT = '200';
+document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sTT+"</tdate><date>"+sDT+"</date>";
+manage();}
+
+  
+function manage(){var name = document.getElementById("name").value;
+if (name != '') {gobutton.hidden = false; gobutton.disabled = false; hidebutton.hidden = true;}else 
+{gobutton.hidden = true; gobutton.disabled = true; hidebutton.hidden = false;} }
+  
+  
+  
+function showkeyboard(){
+var name = document.getElementById("name").value;
+  document.getElementById("name").focus()}
+ 
+function scoresubmit(){make(); document.getElementById("hcb_submit").click();  }
+
+var input = document.getElementById("name");
+  
+  
+input.addEventListener("keypress", function(e) {
+if (e.keyCode === 13) {event.preventDefault();
+document.getElementById("gobutton").click(); }});
+  
+</script>
+<!-- begin wwww.htmlcommentbox.com -->
+
+ <div id="HCB_comment_box">
+
+
+
+</div>
+ <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> 
+
+
+   
+   
+   function htmlbox() {
+     
+     if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24OffYAhfqppTsjVf1ckI8M%2F"+"&opts=16862&num=10&ts=1616389315944");
+                                                    if (typeof s!="undefined") document.getElementById("HCB_comment_box").appendChild(s);
+                                                   
+                                                   })();
+     
+     $('.pp').html('HTML');
+     
+   }
+   
+   htmlbox();
+
+</script>
+<!-- end www.htmlcommentbox.com -->
+
+<style>
+ 
+  #HCB_comment_box { position:fixed;top:0;left:0;height:100%;overflow-y:scroll;overflow-x: hidden; width:0px;height:0px;}
+ #HCB_comment_box a.hcb-like,#HCB_comment_box a.hcb-flag,#HCB_comment_box a.hcb-reply,#HCB_comment_box #hcb_form .home-desc,#HCB_comment_box #hcb_form .hcb-door-in ,#HCB_comment_box .likes{opacity:0;pointer-events:none;position:absolute;}
+</style>
+<div class='mytab'>
+<button class='tabhead'>SCORE OF LAST 10 USERS</button>
+<table id="mytab">
+<tr><th>Name</th><th>Score</th></tr>
+
+<tr><td></td><td style='width:200px'>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+
+</table>
+</div>
+      
+      
+<script>
+    
+function stab() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("mytab");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[1];
+      y = rows[i + 1].getElementsByTagName("td")[1];
+      if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+        shouldSwitch = true;
+        break;}}
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;}}}
+
+  
+
+var getcc=true, getdd=true;
+  
+  
+function getc(){
+
+
+var cb = document.querySelectorAll(".hcb-comment-body"),c = cb.length;
+     
+var an = document.querySelectorAll(".author-name"),a = an.length;
+var tab = document.getElementById("mytab");
+var td = tab.getElementsByTagName('td');
+     
+  if (c>0){
+  
+td[0].innerHTML = an[0].innerText;td[1].innerHTML = cb[0].innerText;
+    
+if (c>1){td[2].innerHTML = an[1].innerText;td[3].innerHTML = cb[1].innerText;}
+    
+if (c>2){td[4].innerHTML = an[2].innerText;td[5].innerHTML = cb[2].innerText;}
+    
+if (c>3){td[6].innerHTML = an[3].innerText;td[7].innerHTML = cb[3].innerText;}
+    
+if (c>4){td[8].innerHTML = an[4].innerText;td[9].innerHTML = cb[4].innerText;}
+   
+if (c>5){td[10].innerHTML = an[5].innerText;td[11].innerHTML = cb[5].innerText;}
+    
+if (c>6){td[12].innerHTML = an[6].innerText;td[13].innerHTML = cb[6].innerText;}
+    
+if (c>7){td[14].innerHTML = an[7].innerText;td[15].innerHTML = cb[7].innerText;}
+    
+if (c>8){td[16].innerHTML = an[8].innerText;td[17].innerHTML = cb[8].innerText;}
+   
+if (c>9){td[18].innerHTML = an[9].innerText;td[19].innerHTML = cb[9].innerText;}
+   
+  if(getcc===true && getdd===true){ stab(); $('.wll').hide(); $('#mytab').fadeIn();}
+     getcc=false; } 
+ 
+ else { 
+  
+  setTimeout(function(){if(getcc===true && getdd===true){$('.wll').hide(); $('#mytab').fadeIn();}   }, 1000);
+   }
+    
+}
+  
+ 
+
+ 
+function make() { getcc=true;getdd=false;$('#mytab').hide();$('.wll').show();
+                 setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();  }}, 1000);
+                }
+setInterval(function(){ if(getcc===true){getc();}
+                      
+                      
+                      }, 1000);
+ 
+ 
+ 
+ 
+
+</script>
+
