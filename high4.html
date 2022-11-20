@@ -196,7 +196,7 @@ function stab() {
       shouldSwitch = false;
       x = rows[i].getElementsByTagName("td")[1];
       y = rows[i + 1].getElementsByTagName("td")[1];
-      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
         shouldSwitch = true;
         break;}}
     if (shouldSwitch) {
