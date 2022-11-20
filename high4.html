@@ -53,13 +53,13 @@ background-color:white;
 }
   
 
-tdate {font-size:12px;min-width:65px; background-color:#DCAF85; color:white; padding:2px; border-radius:2px; margin-top:-0px;float:left;clear:both}
-date {font-size:12px;min-width:90px; background-color:#A1A4E1; color:white; padding:2px; border-radius:2px; margin:1px 0px 1px 0px;float:left;clear:both}
+tdt {font-size:12px;min-width:65px; background-color:#DCAF85; color:white; padding:2px; border-radius:2px; margin-top:-0px;float:left;clear:both}
+dte {font-size:12px;min-width:90px; background-color:#A1A4E1; color:white; padding:2px; border-radius:2px; margin:1px 0px 1px 0px;float:left;clear:both}
   
 .content-inner {background-color:#DCDCDC}
   .tabhead {width:calc(100% - 14px); border:none;margin-left:7px; background-color:white;height:40px; border-top-right-radius:10px;border-top-left-radius:10px; color:black}
-
-  tsc {display:block; width:100%; clear:both}
+ zr{display:none;}
+  tbr {display:block; width:100%; clear:both}
  
  .mname {margin-top:200x;}
  .name-input {width:80%; height:40px;}
@@ -110,16 +110,16 @@ date {font-size:12px;min-width:90px; background-color:#A1A4E1; color:white; padd
 <table id="mytab">
 <tr><th>Name</th><th>Score</th></tr>
 
-<tr><td></td><td style='width:200px'>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
-<tr><td></td><td>--<tsc></tsc><tdate>--</tdate><date>--</date></td></tr>
+<tr><td></td><td style='width:200px'>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
+<tr><td></td><td>--<tsc></tsc><tdt>--</tdt><dte>--</dte></td></tr>
 
 </table>
 </div>
@@ -156,7 +156,7 @@ var sDT = sdate+' '+stime;
 
 var scr = document.querySelector('ys').innerHTML,
 sTT = document.querySelector('time').innerHTML;
-document.getElementById("hcb_form_content").value = scr+"<tsc></tsc><tdate>"+sTT+"</tdate><date>"+sDT+"</date>";
+document.getElementById("hcb_form_content").value = scr+" <zr>00000</zr><tbr></tbr><tdt>"+sTT+"</tdt><dte>"+sDT+"</dte>";
 manage();}
 
   
@@ -196,7 +196,7 @@ function stab() {
       shouldSwitch = false;
       x = rows[i].getElementsByTagName("td")[1];
       y = rows[i + 1].getElementsByTagName("td")[1];
-      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+      if (Number(x.innerText.substring(0, 6)) < Number(y.innerText.substring(0, 6))) {
         shouldSwitch = true;
         break;}}
     if (shouldSwitch) {
