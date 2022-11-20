@@ -233,12 +233,12 @@ if (c>8){td[16].innerHTML = an[8].innerText;td[17].innerHTML = cb[8].innerText;}
    
 if (c>9){td[18].innerHTML = an[9].innerText;td[19].innerHTML = cb[9].innerText;}
    
-  if(getcc===true && getdd===true){ stab(); $('.wll').hide(); $('#mytab').fadeIn();}
+  if(getcc===true && getdd===true){ stab(); $('.wll').hide(); $('#mytab').scrollTop(0).fadeIn();}
      getcc=false; } 
  
  else { 
   
-  setTimeout(function(){if(getcc===true && getdd===true){$('.wll').hide(); $('#mytab').fadeIn();}   }, 1000);
+  setTimeout(function(){if(getcc===true && getdd===true){$('.wll').hide(); $('#mytab').scrollTop(0).fadeIn();}   }, 1000);
    }
     
 }
