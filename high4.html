@@ -130,14 +130,14 @@ dte {font-size:12px;min-width:90px; background-color:#A1A4E1; color:white; paddi
 শেষ দশ জনের লিস্টে আপনার স্কোর রাখতে চাইলে আপনার নাম লিখুন এবং সাবমিট করে দিন।<br/>
 <input class="name-input" id="name" oninput="validity.valid||(value='');manage1(this);" autocomplete="off" type="text" />
 <br/>
-<button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL YOUR NAME</button>
-<button class="gotopage" disabled="" hidden="" id="gobutton" onclick="scoresubmit();">SUBMIT NOW</button>
- <button class="gotopage" id="hidebutton" onclick="$('.myname').hide();$('.mytab').fadeIn();">CANCEL</button>
+<button class="details confirm" id="hidebutton" onclick="showkeyboard()">FILL YOUR NAME</button>
+<button class="details confirm" disabled="" hidden="" id="gobutton" onclick="scoresubmit();">SUBMIT NOW</button>
+ <button class="details confirm" id="hidebutton" onclick="$('.myname').hide();$('.mytab').fadeIn();">CANCEL</button>
  </div>
 </div>
 
 <div class='sretry' hidden>
- HIGH SCORE SERVER BUSY PLEASE TRY AGAIN <button class='gotopage' onclick='ldh()'>RETRY</button>
+ HIGH SCORE SERVER BUSY PLEASE TRY AGAIN <button class='details confirm' onclick='ldh()'>RETRY</button>
 </div>
 <script>
 
