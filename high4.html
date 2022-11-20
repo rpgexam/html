@@ -43,7 +43,7 @@ background-color:white;
   #mytab {
   counter-reset: serial-number;  /* Set the serial number counter to 0 */
 }
-  #mytab td { padding-left:4px;}
+  #mytab td { padding-left:4px; text-align:center;}
 
 #mytab td:first-child:before {
  
@@ -103,7 +103,6 @@ date {font-size:12px; background-color:#A1A4E1; color:white; padding:2px; border
  #HCB_comment_box a.hcb-like,#HCB_comment_box a.hcb-flag,#HCB_comment_box a.hcb-reply,#HCB_comment_box #hcb_form .home-desc,#HCB_comment_box #hcb_form .hcb-door-in ,#HCB_comment_box .likes{opacity:0;pointer-events:none;position:absolute;}
 </style>
 <div class='mytab'>
-<button class='tabhead'>SCORE OF LAST 10 USERS</button>
 <table id="mytab">
 <tr><th>Name</th><th>Score</th></tr>
 
@@ -122,7 +121,7 @@ date {font-size:12px; background-color:#A1A4E1; color:white; padding:2px; border
 </div>
 
 
-NAME:<br/>
+NAME:
 <input class="page-number-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
 
 <button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL</button>
