@@ -61,6 +61,8 @@ date {font-size:12px;min-width:95px; background-color:#A1A4E1; color:white; padd
 
   tsc {display:block; width:100%; clear:both}
  
+ .myname {margin-top:100x;}
+ .name-input {width:80%; height:40px;}
  .gotopage{width:80px;background-color:green;}
 </style>
 
@@ -123,12 +125,12 @@ date {font-size:12px;min-width:95px; background-color:#A1A4E1; color:white; padd
 </div>
 
 <div class='myname' hidden>
-NAME:
-<input class="page-number-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
+শেষ দশ জনের লিস্টে আপনার স্কোর রাখতে চাইলে আপনার নাম লিখুন এবং সাবমিট করে দিন।<br/>
+<input class="name-input" id="name" oninput="validity.valid||(value='');manage1(this);" type="text" />
+<br/>
+<button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL YOUR NAME</button>
 
-<button class="gotopage" id="hidebutton" onclick="showkeyboard()">FILL</button>
-
-<button class="gotopage" disabled="" hidden="" id="gobutton" onclick="scoresubmit();">SAVE</button>
+<button class="gotopage" disabled="" hidden="" id="gobutton" onclick="scoresubmit();">SUBMIT NOW</button>
 </div>
 <script>
 
