@@ -203,9 +203,9 @@ function stab() {
     rows = table.rows;
     for (i = 1; i < (rows.length - 1); i++) {
       shouldSwitch = false;
-      x = rows[i].getElementsByTagName("td")[1];
-      y = rows[i + 1].getElementsByTagName("td")[1];
-      if (Number(x.innerText.substring(0, 6)) < Number(y.innerText.substring(0, 6))) {
+      x = rows[i].getElementsByTagName("scr")[0];
+      y = rows[i + 1].getElementsByTagName("scr")[0];
+      if (Number(x.innerText) < Number(y.innerText)) {
         shouldSwitch = true;
         break;}}
     if (shouldSwitch) {
