@@ -203,9 +203,11 @@ function stab() {
     rows = table.rows;
     for (i = 1; i < (rows.length - 1); i++) {
       shouldSwitch = false;
-      x = rows[i].getElementsByTagName("scr")[0];
-      y = rows[i + 1].getElementsByTagName("scr")[0];
-      if (Number(x.innerText) < Number(y.innerText)) {
+      x = rows[i].getElementsByTagName("td")[1];
+     xx=x.getElementsByTagName('scr')[0];
+      y = rows[i + 1].getElementsByTagName("td")[1];
+      yy=y.getElementsByTagName('scr')[0];
+      if (Number(xx.innerText) < Number(yy.innerText)) {
         shouldSwitch = true;
         break;}}
     if (shouldSwitch) {
