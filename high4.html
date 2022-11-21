@@ -146,10 +146,12 @@ var hbtn = document.getElementById('hidebutton');
 var gbtn = document.getElementById('gobutton');
   
   
-function manage1(p) {if (p.value != '') 
+function manage1(p) {if (p.value!=''||p.value!=' ') 
 {gbtn.hidden = false; gbtn.disabled = false; hbtn.hidden = true;}
  else 
-{gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
+{p.value!=''; gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;}
+                     
+                     
 var name = document.getElementById("name").value;
 document.getElementById("hcb_form_name").value = name;
 
@@ -167,8 +169,9 @@ manage();}
 
   
 function manage(){var name = document.getElementById("name").value;
-if (name != '') {gobutton.hidden = false; gobutton.disabled = false; hidebutton.hidden = true;}else 
-{gobutton.hidden = true; gobutton.disabled = true; hidebutton.hidden = false;} }
+if (name!=''||name!=' ') {gbtn.hidden = false; gbtn.disabled = false; hbtnn.hidden = true;}
+                  else 
+{name='';gbtn.hidden = true; gbtn.disabled = true; hbtn.hidden = false;} }
   
   
   
