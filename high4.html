@@ -205,7 +205,7 @@ function stab() {
       shouldSwitch = false;
       x = rows[i].getElementsByTagName("scr")[0];
       y = rows[i + 1].getElementsByTagName("scr")[0];
-      if (Number(x.innerText) < Number(y.innerText)) {
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
         shouldSwitch = true;
         break;}}
     if (shouldSwitch) {
