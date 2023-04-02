@@ -7,6 +7,17 @@ setTimeout(function() {scrld[0].innerHTML = "PLEASE WAIT";}, 5000);
 setTimeout(function() {scrld[0].innerHTML = "LOADING";
                        if($('#hcb_form_name').is(':visible')){}else{$('.myname,.mytab,.wll').hide();$('.sretry').fadeIn();} }, 10000);}
 delayscore(); 
+  
+  function delaysubmit() {
+    if(getdd===false){
+    
+var scrld = document.getElementsByTagName("scrload");
+scrld[0].innerHTML = "SCORE IS SAVING";
+setTimeout(function() {scrld[0].innerHTML = "PLEASE WAIT";}, 5000);
+setTimeout(function() {
+                       if($('#hcb_form_name').is(':visible')){document.getElementById("hcb_submit").click();} else{delaysubmit();} }, 10000);}
+  }
+
 
 </script>
 
@@ -267,6 +278,7 @@ if (c>9){td[18].innerHTML = an[9].innerText;td[19].innerHTML = cb[9].innerText;}
 function make() { getcc=true;getdd=false;$('#mytab').hide();$('.wll').show();
                  setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();  }}, 1000);
                  setInterval(function(){ if ($('#hcb_msg').is(':visible')&&getdd===false) { document.getElementById("hcb_submit").click();  }}, 2000);
+                 delaysubmit();
                 }
 setInterval(function(){ if(getcc===true){getc();}
                       
