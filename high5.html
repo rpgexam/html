@@ -15,8 +15,7 @@ var scrld = document.getElementsByTagName("scrload");
 scrld[0].innerHTML = "SCORE IS SAVING";
 setTimeout(function() {scrld[0].innerHTML = "PLEASE WAIT";}, 5000);
 setTimeout(function() {
-                       if($('#hcb_form_name').is(':visible')&&getdd===false){scrld[0].innerHTML = "SLOW CONNECTION"; document.getElementById("hcb_submit").click();
-                                                                            delaysubmit();} else{} }, 10000);}
+                       if($('#hcb_form_name').is(':visible')&&getdd===false){scrld[0].innerHTML = "SLOW CONNECTION";document.getElementById("hcb_submit").disabled = false; document.getElementById("hcb_submit").click(); delaysubmit();} else{} }, 10000);}
   }
   
 
