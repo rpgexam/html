@@ -266,7 +266,7 @@ if (c>9){td[18].innerHTML = an[9].innerText;td[19].innerHTML = cb[9].innerText;}
  
 function make() { getcc=true;getdd=false;$('#mytab').hide();$('.wll').show();
                  setInterval(function(){ if ($('.btn-secondary').is(':visible')) { ldh();  }}, 1000);
-                 if(getdd===false){setInterval(function(){ if ($('#hcb_msg').is(':visible')) { document.getElementById("hcb_submit").click();  }}, 2000);}
+                 setInterval(function(){ if ($('#hcb_msg').is(':visible')&&getdd===false) { document.getElementById("hcb_submit").click();  }}, 2000);
                 }
 setInterval(function(){ if(getcc===true){getc();}
                       
